@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTC-8">
+    <title>Executionist v.Abolitionist </title>
+    <!-- Linking Bootstrap stylesheet-->
+    <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" type="text/css" href="style2.css">
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+      <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity=" sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity=" sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style 2.css">
+</head>
+<body>
+ <nav class="navbar navbar-default">
+    <div class="container-fluid"> 
+      <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html" style="font-size: 175%; color: white">Death Penalty Dashboard</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="search_index.html" style="color: white">Search Executions</a></li>
+        <li><a href="state_index.html" style="color: white">State Executions By Race</a></li>
+
+        <li class="dropdown" style="color: white">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white">Global Death Penalty <span class="caret"></span></a>
+
+          <ul class="dropdown-menu" style="color: white">
+            <li><a href="countryExecution.html">Top Executing Countries</a></li>
+            <li><a href="stacked.html">Executing vs Abolishonists Over Time</a></li>
+            <li role="separator" class="divider"></li>
+          </ul>
+
+        </li> 
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white">Maps of the US <span class="caret"></span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="execution_rate.html">Execution Rate</a></li>
+            <li><a href="execution_legal.html">Legal vs illegal</a></li>
+            <li role="separator" class="divider"></li>
+          </ul>
+
+        </li>       
+        </ul>
+      </div>
+      </div>
+  </nav>
+
+    <div class="container">
+      <section class="row">
+        <div class="col-md-4">
+          <article class="project2-content">
+            <h1 class="project2-header">Executionist vs Abolitionist</h1>
+            <hr/>
+            <p>Over the period of 22 years, covering 1991 through 2012, we see a trend globally where more countries are resolving to either abolish or not recognize execution as a penalty.</p>
+            <p>During the same period of time, those countries that still recognize execution, have steadily decreased to where the total number of countries performing executions are half what they were in 1995.
+          </article>
+        </div>
+        <div class="col-md-8">
+          <section id="image-area">
+            <div id="svg-area"></div>
+          <script type="text/javascript" src="jp.js"></script>
+            </div>
+          </section>
+
+        </div>
+      </section>
+    </div>
+    <!-- Start of footer -->
+    <footer class="footer navbar-fixed-bottom">
+      <div class="two-toned-footer-color"></div>
+      <p class="text-muted text-muted-footer text-center">
+        &copy; Copyright D. Bost, A. Mamun and J. Richardson
+      </p>
+    </footer>
+    <!-- End of footer -->
+</body>
+</html>

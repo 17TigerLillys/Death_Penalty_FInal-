@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Death Penalty Dashboard</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!--link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}"-->
+   <!--link rel="stylesheet" href="style.css"-->
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   <nav class="navbar navbar-default">
+    <div class="container-fluid"> 
+      <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html" style="font-size: 175%; color: white">Death Penalty Dashboard</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="search_index.html" style="color: white">Search Executions</a></li>
+        <li><a href="state_index.html" style="color: white">State Executions By Race</a></li>
+
+        <li class="dropdown" style="color: white">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white">Global Death Penalty <span class="caret"></span></a>
+
+          <ul class="dropdown-menu" style="color: white">
+            <li><a href="countryExecution.html">Top Executing Countries</a></li>
+            <li><a href="stacked.html">Executing vs Abolishonists Over Time</a></li>
+            <li role="separator" class="divider"></li>
+          </ul>
+
+        </li> 
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: white">Maps of the US <span class="caret"></span></a>
+
+          <ul class="dropdown-menu">
+            <li><a href="execution_rate.html">Execution Rate</a></li>
+            <li><a href="execution_legal.html">Legal vs illegal</a></li>
+            <li role="separator" class="divider"></li>
+          </ul>
+
+        </li>       
+        </ul>
+      </div>
+      </div>
+  </nav>
+  <div class="container-fluid2" id="cont1">
+    <div class="row">
+      <div class="col-xs-2 col-s-2 col-md-2" >
+        <div class="demo-content responsive">
+          <h4>Select a State</h4>
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <select id="selDataset" onchange="optionChanged(this.value)"></select>
+            </button>
+          </div>
+          <!--div id="meta_data" class="panel panel-success responsive">
+            <div class="panel-heading responsive">
+              
+            </div>
+            <div id="meta_list">
+            </div>
+          </div-->
+        </div>
+      </div>
+      <div class="col-xs-5 col-s-5 col-md-5">
+        <div class="demo-content responsive">
+          <div id="pie_chart">
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-10 col-s-10 col-md-10">
+        <div class="demo-content responsive">
+          <div id="plot">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <hr>
+    </div>
+  </div>
+
+    <script>
+      var state_list = ['AL','AR','AZ','CA','CO','CT','DE','FE','FL','GA','ID','IL','IN','KY','LA','MD','MO',
+            'MS','MT','NC','NE','NM','NV','OH','OK','OR','PA','SC','SD','TN','TX','UT','VA','WA','WY']
+
+      var race_dict = {'MD': {'Black': 3, 'White': 2}, 'OR': {'White': 2}, 'IN': {'Black': 3, 'White': 17}, 'LA': {'Black': 13, 'White': 15}, 'TX': {'Asian': 2, 'Black': 197, 'Latino': 101, 'Native American': 2, 'White': 236}, 'CA': {'Asian': 1, 'Black': 2, 'Native American': 2, 'White': 8}, 'OK': {'Asian': 2, 'Black': 35, 'Latino': 1, 'Native American': 6, 'Other': 1, 'White': 67}, 'MO': {'Black': 34, 'Native American': 1, 'White': 52}, 'NV': {'Asian': 1, 'Black': 1, 'Latino': 1, 'White': 9}, 'CT': {'White': 1}, 'UT': {'Black': 2, 'White': 5}, 'FL': {'Black': 28, 'Latino': 7, 'Native American': 1, 'White': 56}, 'AR': {'Black': 7, 'Latino': 1, 'White': 19}, 'KY': {'White': 3}, 'MS': {'Black': 6, 'White': 15}, 'WY': {'White': 1}, 'CO': {'White': 1}, 'SD': {'White': 3}, 'OH': {'Black': 19, 'White': 34}, 'VA': {'Black': 51, 'Latino': 3, 'Other': 1, 'White': 56}, 'PA': {'White': 3}, 'AZ': {'Black': 1, 'Latino': 5, 'Native American': 2, 'White': 29}, 'NM': {'White': 1}, 'TN': {'Black': 1, 'White': 5}, 'WA': {'White': 5}, 'ID': {'White': 3}, 'FE': {'Black': 1, 'Latino': 1, 'White': 1}, 'NE': {'Black': 2, 'White': 1}, 'IL': {'Black': 5, 'White': 7}, 'SC': {'Black': 16, 'White': 27}, 'NC': {'Black': 13, 'Native American': 1, 'White': 29}, 'MT': {'White': 3}, 'AL': {'Black': 25, 'White': 33}, 'GA': {'Black': 23, 'White': 46}, 'DE': {'Black': 7, 'Native American': 1, 'White': 8}}
+
+      var originalWidth = document.getElementById('cont1').clientWidth;
+      var gaugeMarkerSize = 20;
+      
+      var colors2 = ['rgba(0, 0, 155, 1)',
+                        'rgba(0, 225, 255, 1)', 'rgba(0, 128, 255, 1)',
+                        'rgba(0, 0, 255, 1)', 'rgba(128, 0, 255, 1)', 'rgba(191,0,255,.5)',
+                        'rgba(255, 0, 255, .5)','rgba(255, 0, 150, .45)',   
+                        'rgba(229, 21, 233, 0.25)', 'rgba(0, 0, 255, .3)',
+
+                         'rgba(0, 0, 255, .9)','rgba(255,0,0,.8)'];
+      var colors3 = ["#863f91", "#815c74", "#9596c1", "#99ced6", "#b1f4e7", "#00CAAE"]
+      var colors = ["#980043","#dd1c77","#df65b0","#c994c7","#d4b9da","#f1eef6"]
+      var State = 'GA'
+      build_pie_chart(State);
+       function build_pie_chart(state) {
+          //debugger;
+          //clearHTML("pie_chart");
+          var races = ["Black", "White", "Latino", "Asian", "Native American", "Other"]
+          var label_list = []
+          var data_list = [];
+            //check for non-zero elements
+            for (i=0; i<races.length; i++) {
+              if (race_dict[state][races[i]] ) {
+                data_list.push(race_dict[state][races[i]])
+                label_list.push(races[i])
+              }
+            }
+            //console.log(state)
+              var pie_chart_layout = {
+                title: "Racial Breakdown of Executions for "+ state,
+                height: 600,
+                width: 600,
+                };
+            //console.log(pie_chart_layout);
+            var pie_data = [{
+                values: data_list,
+                labels: label_list,
+                type: "pie",
+                'marker': {'colors': colors},
+            }];
+            Plotly.plot("pie_chart", pie_data, pie_chart_layout);
+          }
+
+        //build_pie_chart("CA")
+        function build_dropdown_button(data_names) {
+          //loop through the data_names
+          for (i=0; i<data_names.length; i++) {
+            var optn = document.createElement("OPTION");
+            var element = document.getElementById("selDataset").options.add(optn);
+            optn.text = data_names[i];
+            optn.value = data_names[i];
+          }
+        }
+        function clearHTML(id) {
+            document.getElementById(id).innerHTML = "";
+            //(id).empty();
+              }
+        //refresh the charts using the data for the newly selected sample
+        function optionChanged(new_state) {
+         
+              var races = ["Black", "White", "Latino", "Asian", "Native American", "Other"]
+              var new_label_list = [];
+              var new_data_list = [];
+              
+            for (i=0; i<races.length; i++) {
+                //only include if non-zero
+                if (race_dict[new_state][races[i]] ) {
+                  new_label_list.push(races[i]);
+                  new_data_list.push(race_dict[new_state][races[i]]);
+                }
+              }
+              //update the pie chart with the new data
+              updatePlotly(new_data_list, new_label_list, new_state);
+              // clearHTML("pie_chart")
+              // build_pie_chart(new_state);
+        }
+        //Build the initial pie chart for the input sample
+       
+              //update the pie chart after a new data sample has been selected
+              function updatePlotly(new_data_list, new_label_list, new_state) {
+                  //update the PIE chart
+                  var PIE = document.getElementById("pie_chart");
+                  Plotly.relayout(PIE, "title", "Executions by Race for: "+ new_state);
+                  Plotly.restyle(PIE, "values", [new_data_list]);
+                  Plotly.restyle(PIE, "labels", [new_label_list]);
+                  //Plotly.restyle(PIE, "hovertext", [new_top_ten_otu_desc]);
+              }
+      build_dropdown_button(state_list);
+  
+    </script>
+ <!-- Start of footer -->
+    <footer class="footer navbar-fixed-bottom">
+      <div class="two-toned-footer-color"></div>
+      <p class="text-muted text-muted-footer text-center">
+        &copy; Copyright D. Bost, A. Mamun and J. Richardson
+      </p>
+    </footer>
+    <!-- End of footer -->
+</body>
+</html>

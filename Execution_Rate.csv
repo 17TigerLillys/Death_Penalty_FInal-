@@ -1,0 +1,52 @@
+,State,Number of execution,Population,Population ('0000),"Execution rate per 10,000 people",,State,Population,Abbrviation,Execution: Legal
+0,OK,112,3930864,393,0.285,,Alabama,4874747,AL,Legal
+1,TX,538,28304596,2830,0.19,,Alaska,739795,AK,Not legal
+2,DE,16,961939,96,0.166,,Arizona,7016270,AZ,Legal
+3,MO,87,6113532,611,0.142,,Arkansas,3004279,AR,Legal
+4,VA,111,8470020,847,0.131,,California,39536653,CA,Legal
+5,AL,58,4874747,487,0.119,,Colorado,5607154,CO,Legal
+6,AR,27,3004279,300,0.09,,Connecticut,3588184,CT,Not legal
+7,SC,43,5024369,502,0.086,,Delaware,961939,DE,Not legal
+8,MS,21,2984100,298,0.07,,District of Columbia,693972,DC,Not legal
+9,GA,69,10429379,1043,0.066,,Florida,20984400,FL,Legal
+10,LA,28,4684333,468,0.06,,Georgia,10429379,GA,Legal
+11,AZ,37,7016270,702,0.053,,Hawaii,1427538,HI,Not legal
+12,OH,53,11658609,1166,0.045,,Idaho,1716943,ID,Legal
+13,FL,92,20984400,2098,0.044,,Illinois,12802023,IL,Not legal
+14,NC,43,10273419,1027,0.042,,Indiana,6666818,IN,Legal
+15,NV,12,2998039,300,0.04,,Iowa,3145711,IA,Not legal
+16,SD,3,869666,87,0.034,,Kansas,2913123,KS,Legal
+17,IN,20,6666818,667,0.03,,Kentucky,4454189,KY,Legal
+18,MT,3,1050493,105,0.029,,Louisiana,4684333,LA,Legal
+19,UT,7,3101833,310,0.023,,Maine,1335907,ME,Not legal
+20,ID,3,1716943,172,0.017,,Maryland,6052177,MD,Not legal
+21,WY,1,579315,58,0.017,,Massachusetts,6859819,MA,Not legal
+22,NE,3,1920076,192,0.016,,Michigan,9962311,MI,Not legal
+23,IL,12,12802023,1280,0.009,,Minnesota,5576606,MN,Not legal
+24,TN,6,6715984,672,0.009,,Mississippi,2984100,MS,Legal
+25,MD,5,6052177,605,0.008,,Missouri,6113532,MO,Legal
+26,WA,5,7405743,741,0.007,,Montana,1050493,MT,Legal
+27,KY,3,4454189,445,0.007,,Nebraska,1920076,NE,Legal
+28,OR,2,4142776,414,0.005,,Nevada,2998039,NV,Legal
+29,NM,1,2088070,209,0.005,,New Hampshire,1342795,NH,Legal
+30,CA,13,39536653,3954,0.003,,New Jersey,9005644,NJ,Not legal
+31,CT,1,3588184,359,0.003,,New Mexico,2088070,NM,Not legal
+32,PA,3,12805537,1281,0.002,,New York,19849399,NY,Not legal
+33,CO,1,5607154,561,0.002,,North Carolina,10273419,NC,Legal
+,,,,,,,North Dakota,755393,ND,Not legal
+,,,,,,,Ohio,11658609,OH,Legal
+,,,,,,,Oklahoma,3930864,OK,Legal
+,,,,,,,Oregon,4142776,OR,Legal
+,,,,,,,Pennsylvania,12805537,PA,Legal
+,,,,,,,Rhode Island,1059639,RI,Not legal
+,,,,,,,South Carolina,5024369,SC,Legal
+,,,,,,,South Dakota,869666,SD,Legal
+,,,,,,,Tennessee,6715984,TN,Legal
+,,,,,,,Texas,28304596,TX,Legal
+,,,,,,,Utah,3101833,UT,Legal
+,,,,,,,Vermont,623657,VT,Not legal
+,,,,,,,Virginia,8470020,VA,Legal
+,,,,,,,Washington,7405743,WA,Legal
+,,,,,,,West Virginia,1815857,WV,Not legal
+,,,,,,,Wisconsin,5795483,WI,Not legal
+,,,,,,,Wyoming,579315,WY,Legal
